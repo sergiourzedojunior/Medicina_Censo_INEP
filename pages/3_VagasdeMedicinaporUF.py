@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Vagas de Medicina por UF", layout="wide")
 
 # Load the forecast data
-final_forecast = pd.read_csv(r'D:\OneDrive\censo ensino superior\final_forecast.csv')
+final_forecast = pd.read_csv('./data/final_forecast.csv')
 
 # Update the rolling average on the DataFrame for all years and round off
 final_forecast['rolling_yhat_adjusted'] = final_forecast.groupby('SG_UF')['yhat_adjusted'].transform(
@@ -81,9 +81,7 @@ fig.update_layout(
     hovermode='closest'
 )
 
-
 # Displaying the plots in Streamlit
-
 st.title('Education Data Dashboard - Medical Courses 🩺')
 st.header('Grouped Data Overview - State Vacancies')
 st.plotly_chart(fig, use_container_width=True)

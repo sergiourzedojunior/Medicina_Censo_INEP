@@ -46,7 +46,6 @@ def create_grouped_plot(df):
     )
     return fig
 
-
 # Function to create a plotly graph for predictions with growth rates
 def create_prediction_plot(df, title, x_col, y_col='yhat', actual_col='y', growth_rate_col='predicted_growth_rate', actual_growth_rate_col='actual_growth_rate'):
     fig = go.Figure()
@@ -72,11 +71,10 @@ def create_prediction_plot(df, title, x_col, y_col='yhat', actual_col='y', growt
                       template='plotly_dark')
     return fig
 
-
-# Load data
-df_grouped_reset = load_data('D:/OneDrive/censo ensino superior/df_grouped_reset.csv')
-df_insc = load_data('D:/OneDrive/censo ensino superior/forecast_insc.csv')
-df_vg = load_data('D:/OneDrive/censo ensino superior/forecast_vg.csv')
+# Load data with correct paths
+df_grouped_reset = load_data('./data/df_grouped_reset.csv')
+df_insc = load_data('./data/forecast_insc.csv')
+df_vg = load_data('./data/forecast_vg.csv')
 
 # Calculating growth rates for both vacancy and inscription data
 df_vg['actual_growth_rate'] = df_vg['y'].pct_change()
@@ -96,7 +94,6 @@ fig_vg = create_prediction_plot(df_vg, 'Vacancy Predictions Overview with Growth
 fig_insc = create_prediction_plot(df_insc, 'Inscription Predictions Overview with Growth Rates', 'ds', 'yhat', 'y')
 
 # Displaying the plots in Streamlit
-
 st.title('Education Data Dashboard - Medical Courses 🩺')
 st.header('Grouped Data Overview')
 st.plotly_chart(fig_grouped_reset, use_container_width=True)

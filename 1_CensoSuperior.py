@@ -21,32 +21,34 @@ def cache_data(func):
 @cache_data
 def load_df_grouped_reset():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("df_grouped_reset.csv")
+    return pd.read_csv("./data/df_grouped_reset.csv")
 
 @cache_data
 def load_df_selected():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("df_selected.csv")
+    return pd.read_csv("./data/df_selected.csv")
 
 @cache_data
 def load_final_forecast():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("final_forecast.csv")
+    return pd.read_csv("./data/final_forecast.csv")
 
 @cache_data
 def load_forecast_insc():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("forecast_insc.csv")
+    return pd.read_csv("./data/forecast_insc.csv")
 
 @cache_data
 def load_forecast_vg():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("forecast_vg.csv")
+    return pd.read_csv("./data/forecast_vg.csv")
 
 @cache_data
 def load_df_unique_count_IES_UF():
     time.sleep(5)  # Simulated delay to mimic a long loading process
-    return pd.read_csv("df_unique_count_IES_UF.csv")
+    return pd.read_csv("./data/df_unique_count_IES_UF.csv")
+
+
 
 # App main interface
 st.markdown("# Dados do Censo Ensino Superior - Medicina! 🩺")
@@ -88,4 +90,3 @@ styled_df = df_unique_count_IES_UF.style.background_gradient(subset=['Proporçã
 
 # Display styled DataFrame in Streamlit
 st.dataframe(styled_df)
-
